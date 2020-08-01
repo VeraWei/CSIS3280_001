@@ -35,11 +35,11 @@ if (!empty($_POST['studentId']))   {
 }
 
 if (LoginManager::verifyLogin())    {
-    $u = UserDAO::getUser($_SESSION['loggedin']);
-    Page::showUserDetails($u);
+    // $u = UserDAO::getUser($_SESSION['loggedin']);
+    // Page::showUserDetails($u);
     
-    // header("Location: courseDetail.php");
-    // exit;
+    header("Location: courseDetail.php");
+    exit;
 }
 else
     Page::showLogin();

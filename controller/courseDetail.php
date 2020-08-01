@@ -17,6 +17,12 @@ CoursePage::header();
 // get all schedule
 session_start();
 
+if(!isset($_SESSION['loggedin'])) {
+
+    header("Location: userLogin.php");
+    exit;
+}
+
 coursesDAO::$studentId = $_SESSION['loggedin'];
 $u = UserDAO::getUser($_SESSION['loggedin']);
 
