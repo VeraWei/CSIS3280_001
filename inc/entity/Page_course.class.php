@@ -3,7 +3,7 @@
 class CoursePage
 {
     public static $title = "Goup 7 Project Work - Students Courses Management System";
-    public static $scheduleCourses;
+    public static $scheduleCourses = [];
 
     static function header()
     { ?>
@@ -135,10 +135,10 @@ class CoursePage
                             <tbody>
                                 <?php
                                 foreach ($courses as $course) {
-                                    $isChecked = in_array($course->getCourseID(), self::$scheduleCourses);
+                                    $isChecked = in_array((int)$course->getCourseID(), self::$scheduleCourses);
                                     echo "<td><div class='course-card'>";
                                     if ($isChecked) {
-                                        echo "<input checked name='courseList[]' type='checkbox' value='" . $course->getCourseID() . "'/>";
+                                        echo "<input disabled checked name='courseList[]' type='checkbox' value='" . $course->getCourseID() . "'/>";
                                     } else {
                                         echo "<input name='courseList[]' type='checkbox' value='" . $course->getCourseID() . "'/>";
                                     }
@@ -164,7 +164,18 @@ class CoursePage
             </div>
         </div>
 
-        <?php }
+        <?php
+        }
+
+        static function showCourses(Course $course) {
+            ?>
+            <div>
+                <?php
+                    echo "<h5 class='card-title'>Course Title : " . "  " . $course->getCourseID() . " " .  $course->getSubjects() . " " . $course->getWeekDate() . "</h5>";
+                ?>
+            </div>
+            <?php
+        }
     }
 
 ?>

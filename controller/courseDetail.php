@@ -29,36 +29,46 @@ $u = UserDAO::getUser($_SESSION['loggedin']);
 CoursePage::userInfo($u);
 CoursePage::showSearchBar();
 
-CoursePage::$scheduleCourses = coursesDAO::getScheduleCourse();
+foreach(coursesDAO::getScheduleCourse() as $scheduleCourse) {
+    CoursePage::$scheduleCourses[] = $scheduleCourse->getCourseID();
+}
 
 if (!empty($_POST)) {
-    $courseId = $_POST['inputCourse'];
+    $courseId = (int)$_POST['inputCourse'];
     if (!empty($courseId)) {
-        $courses = CoursesDAO::getSingleCourse($courseId);
+        $courses = coursesDAO::getSingleCourse($courseId);
         CoursePage::showResult([$courses]);
     } else {
         $major = $_POST['major'];
         $term = $_POST['term'];
 
         if(!empty($major) && !empty($term)) {
-            $courses = CoursesDAO::getSelectedCourses($major, $term);
+            $courses = coursesDAO::getSelectedCourses($major, $term);
             CoursePage::showResult($courses);
         }
     }
 } else {
-    $course = CoursesDAO::getCourses();
-    CoursePage::showResult($course);
+    $courses = coursesDAO::getCourses();
+    CoursePage::showResult($courses);
 }
 
 // course submit
 
 if(isset($_POST['courseSubmit'])) {
-    if(!empty($_POST['courseList'])) {
-        foreach ($_POST['courseList'] as $$courseId) {
-            CoursesDAO::addCourses($courseId);
+    $courseList = $_POST['courseList'];
+    if(!empty($courseList)) {
+        foreach ($courseList as $courseId) {
+            try {
+                coursesDAO::addCourses($courseId);
+                $course = coursesDAO::getSingleCourse($courseID);
+                CoursePage::showCourses($course);
+            }
+            catch(Exception $e){
+                throw "Failed to add course. Please check if it's already added";
+            }
+           
         }
-
-        // header("Location: calendar.php");
+        
     }
 }
 
