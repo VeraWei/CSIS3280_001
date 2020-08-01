@@ -2,9 +2,9 @@ drop database if exists FP_yanyi;
 create database FP_yanyi;
 use FP_yanyi;
 
-create table Students (
+create table Student (
 	studentId INT AUTO_INCREMENT PRIMARY KEY,
-	full_name VARCHAR(50),	
+	full_name VARCHAR(50),
 	email VARCHAR(20),
     major VARCHAR(50),
 	password VARCHAR(250)
@@ -40,5 +40,5 @@ create table schedule (
 )Engine=InnoDB;
 
 
-INSERT INTO Student (username, studentid, password, email, full_name, major, photo) VALUES
-('yana', 3000000001, '$2y$10$oziFFuYd.LtRHuYzBSZwsuign27SMgc1oAI5uwG/Tk9mOxIoGyA.q', '123@gmail.com', 'Yanyi Li', 'CSIS', '');
+INSERT INTO Student (studentid, password, email, full_name, major) VALUES
+(300000000, '$2y$10$oziFFuYd.LtRHuYzBSZwsuign27SMgc1oAI5uwG/Tk9mOxIoGyA.q', '123@gmail.com', 'Yanyi Li', 'CSIS');
