@@ -44,7 +44,7 @@ class Page  {
 
         <div class="form-group row">
             <div class="col-md-6">
-                Username: <?php echo $u->getUserName(); ?>
+                studentId: <?php echo $u->getStudentId(); ?>
             </div>
             <div class="col-md-6">
                     Full Name: <?php echo $u->getFullName(); ?>
@@ -66,8 +66,8 @@ class Page  {
     <form class="form-signin" ACTION="" METHOD="POST" style="max-width: 330px">
         <h2 class="form-signin-heading">Please sign in</h2>
         <div class="form-group">
-            <label for="inputUserName" class="sr-only">Username</label>
-            <input type="text" id="inputUserName" class="form-control" placeholder="User Name" required autofocus name="username">
+            <label for="inputstudentId" class="sr-only">studentId</label>
+            <input type="text" id="inputstudentId" class="form-control" placeholder="User Name" required autofocus name="studentId">
         </div>
 
         <div class="form-group">

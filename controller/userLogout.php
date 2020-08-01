@@ -1,11 +1,11 @@
 <?php
 require_once("inc/config.inc.php");
-require_once("inc/Entity/Page.class.php");
-require_once("inc/Entity/User.class.php");
+require_once("inc/entity/Page.class.php");
+require_once("inc/entity/User.class.php");
 
-require_once("inc/Utility/PDOAgent.class.php");
-require_once("inc/Utility/LoginManager.class.php");
-require_once("inc/Utility/UserDAO.class.php");
+require_once("inc/utility/PDOAgent.class.php");
+require_once("inc/utility/LoginManager.class.php");
+require_once("inc/utility/UserDAO.class.php");
 
 //Start the sesion... one last time!
 session_start();

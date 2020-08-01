@@ -9,25 +9,19 @@ class UserDAO   {
         self::$db = new PDOAgent("User");    
     }    
 
-    static function getUser(string $userName)  {
-        
-        $sql = "SELECT * FROM users WHERE username=:user";
-        self::$db->query($sql);
-        self::$db->bind(":user",$userName);
-        self::$db->execute();
+    static function getUser(int $studentId)  {
+
+        try {
+            $selectOne = "SELECT * FROM Student WHERE studentId=$studentId";
+    
+            self::$db->query($selectOne);
+            self::$db->execute();
+
+        } catch(PDOException $pe) {
+            error_log($pe->getMessage());
+        }
         
         return self::$db->singleResult();
     }
 
-    static function setPassword($userName, $newPassword)    {
-        return self::$db->rowCount();
-    }
-
-    static function getUsers()  {
-
-           
-
-    }
-    
-    
 }

@@ -1,14 +1,12 @@
 <?php
 
-require_once("inc/config.inc.php");
-require_once("inc/Entity/User.class.php");
-require_once("inc/Entity/Page.class.php");
+require_once("../inc/config.inc.php");
+require_once("../inc/entity/User.class.php");
+require_once("../inc/entity/Page.class.php");
 
-require_once("inc/Utility/LoginManager.class.php");
-require_once("inc/Utility/PDOAgent.class.php");
-require_once("inc/Utility/UserDAO.class.php");
-
-
+require_once("../inc/utility/LoginManager.class.php");
+require_once("../inc/utility/PDOAgent.class.php");
+require_once("../inc/utility/UserDAO.class.php");
 
 //Set the page Title
 Page::header();
@@ -19,10 +17,10 @@ UserDAO::init();
 //UserDAO::setPassword('week13','1234');
 
 //Check if the form was posted
-if (!empty($_POST['username']))   {
+if (!empty($_POST['studentId']))   {
 
     
-    $authUser = UserDAO::getUser($_POST['username']);
+    $authUser = UserDAO::getUser($_POST['studentId']);
 
         //Check the password
         if ($authUser->verifyPassword($_POST['password']))  {
@@ -31,7 +29,7 @@ if (!empty($_POST['username']))   {
             session_start();
             
             //Set the user to logged in
-            $_SESSION['loggedin'] = $authUser->getUserName();
+            $_SESSION['loggedin'] = $authUser->getStudentId();
             
         }
 }
@@ -39,6 +37,9 @@ if (!empty($_POST['username']))   {
 if (LoginManager::verifyLogin())    {
     $u = UserDAO::getUser($_SESSION['loggedin']);
     Page::showUserDetails($u);
+    
+    // header("Location: courseDetail.php");
+    // exit;
 }
 else
     Page::showLogin();

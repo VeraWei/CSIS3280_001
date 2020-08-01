@@ -1,23 +1,30 @@
 <?php
 
-//  id | full_name | username  | password
 class User{
 
     // attributes
     private $id = 0;
-    private $username = '';
-    private $full_name = '';
-    private $password = '';
+    private $studentId;
+    private $full_name;
+    private $email;
+    private $major;
+    private $password;
 
     // Getter
     function getId() : int{
         return $this->id;
     }
-    function getUserName() : string{
-        return $this->username;
+    function getStudentId() : int{
+        return $this->studentId;
     }
     function getFullName() : string{
         return $this->full_name;
+    }
+    function getEmail() : string{
+        return $this->email;
+    }
+    function getMajor() : string{
+        return $this->major;
     }
 
     // function to verify user password
