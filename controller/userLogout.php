@@ -17,7 +17,7 @@ unset($_SESSION);
 session_destroy();
 
 Page::header();
-echo "<p>Thank you for your visit!</p>";
+echo "<p>Thank you for your visit! <a href='userLogin.php'>Get Back</a></p>";
 Page::footer();
 
 ?>

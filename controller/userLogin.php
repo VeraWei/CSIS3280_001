@@ -8,13 +8,11 @@ require_once("../inc/utility/LoginManager.class.php");
 require_once("../inc/utility/PDOAgent.class.php");
 require_once("../inc/utility/UserDAO.class.php");
 
-//Set the page Title
+//Display login page header
 Page::header();
 //Initialize the DAO
 UserDAO::init();
 
-// set password for the demo user
-//UserDAO::setPassword('week13','1234');
 
 //Check if the form was posted
 if (!empty($_POST['studentId']))   {
@@ -22,7 +20,7 @@ if (!empty($_POST['studentId']))   {
     
     $authUser = UserDAO::getUser($_POST['studentId']);
 
-        //Check the password
+        //Check authUser is exsist and  the password is correct
         if ($authUser && $authUser->verifyPassword($_POST['password']))  {
 
             //Start the session
@@ -32,13 +30,12 @@ if (!empty($_POST['studentId']))   {
             $_SESSION['loggedin'] = $authUser->getStudentId();
             
         } else {
+            // or display the error
             Page::showError();
         }
 }
 
 if (LoginManager::verifyLogin())    {
-    // $u = UserDAO::getUser($_SESSION['loggedin']);
-    // Page::showUserDetails($u);
     
     header("Location: courseDetail.php");
     exit;

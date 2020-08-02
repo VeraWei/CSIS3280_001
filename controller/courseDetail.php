@@ -8,26 +8,32 @@ include_once("../inc/utility/PDOAgent.class.php");
 require_once("../inc/utility/LoginManager.class.php");
 include_once("../inc/utility/CoursesDAO.class.php");
 require_once("../inc/utility/UserDAO.class.php");
-
+//intial DAO
 CoursesDAO::init();
 UserDAO::init();
 
+//show coursePage header
 CoursePage::header();
 
 // get all schedule
 session_start();
 
+// check session
 if(!isset($_SESSION['loggedin'])) {
 
     header("Location: userLogin.php");
     exit;
 }
 
+//set studentID into CourseDAO
 CoursesDAO::$studentId = $_SESSION['loggedin'];
+//get current user
 $u = UserDAO::getUser($_SESSION['loggedin']);
-
 CoursePage::userInfo($u);
+
+//display content
 CoursePage::showSearchBar();
+
 
 foreach(CoursesDAO::getScheduleCourse() as $scheduleCourse) {
     CoursePage::$scheduleCourses[] = $scheduleCourse->getCourseID();
@@ -56,9 +62,6 @@ if(isset($_POST['courseSubmit'])) {
         foreach ($_POST['courseList'] as $courseId) {
             try {
                 CoursesDAO::addCourses($courseId);
-                // $course = CoursesDAO::getSingleCourse($courseID);
-                // CoursePage::showCourses($course);
-
             }
             catch(Exception $e){
                 throw "Failed to add course. Please check if it's already added";
