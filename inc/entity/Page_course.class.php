@@ -50,7 +50,7 @@ class CoursePage
 
     static function userInfo(User $u) {
     ?>
-        <div class="card" id="userInfo">
+        <div class="card userInfo">
             <h5 class="card-header">Student Current Status</h5>
             <div class="card-body">
                 <p class="card-text">
@@ -72,7 +72,7 @@ class CoursePage
             <form class="form-signin" action="" method="POST" style="max-width: 330px;">
                 <h5 class="form-signin-heading">Search Courses by ID</h5>
                 <div class="form-group">
-                    <input type="number" id="inputCourse" class="form-control" placeholder="Enter Courses Section ID" name="inputCourse" />
+                    <input type="number" class="form-control" placeholder="Enter Courses Section ID" name="inputCourse" />
                 </div>
                 <div>
                     <button name="search" class="btn btn-lg btn-primary btn-block" type="submit">

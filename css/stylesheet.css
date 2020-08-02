@@ -238,6 +238,6 @@ body {
   vertical-align: top;
   padding-left: 12px;
 }
-#userInfo {
+.userInfo {
   margin-top: 50px;
 }
