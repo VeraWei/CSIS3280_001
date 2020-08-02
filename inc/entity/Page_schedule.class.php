@@ -3,6 +3,7 @@
 class SchedulePage
 {
     public static $title = "Goup 7 Project Work - Students Courses Management System";
+    public static $courses = [];
 
     static function header()
     { ?>
@@ -77,14 +78,27 @@ class SchedulePage
     <?php
     }
 
-    static function showCourses($course) {
+    static function showCourses() {
         ?>
-        <div>
-            <?php
-                echo "<h5 class='card-title'>Course Title : " . "  " . $course->getCourseID() . " " .  $course->getSubjects() . " " . $course->getWeekDate() . "</h5>";
-                echo "<td><a href='?crn=" . $course->getCourseID() ."'>delete course</a>";
-            ?>
-        </div>
+            <div class="row">
+                <?php
+                
+                foreach(self::$courses as $course) {
+
+                    echo "<div  class='col-sm-6'>";
+                    echo "<div class='card'>";
+                    echo "<div class='card-body'>";
+                    echo "<h5 class='card-title'>". $course->getMajor(). " " . $course->getCourseID()."</h5>";
+                    echo " <h6 class='card-subtitle mb-2 text-muted'>". $course->getSubjects() ."</h6>";
+                    echo "<p class='card-text'> Schedule: " . $course->getCourseStart() . "-" . $course->getCourseEnd() ." ".$course->getWeekDate() ."</p>";
+                    echo "<p class='card-text'> Place: " . $course->getPlace() . "</p>";
+                    echo "<a class='btn btn-primary' href='?crn=" . $course->getCourseID() ."'>Delete</a>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
+            </div>
         <?php
     }
 

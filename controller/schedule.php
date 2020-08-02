@@ -42,10 +42,12 @@ $courses = CoursesDAO::getScheduleCourse();
 
 if (empty($courses)) {
 	SchedulePage::showPlaceholder();
-}
-foreach($courses as $course) {
-	$fullCourseContent = CoursesDAO::getSingleCourse($course->getCourseID());
-	SchedulePage::showCourses($fullCourseContent);
+} else {
+	foreach($courses as $course) {
+		$fullCourseContent = CoursesDAO::getSingleCourse($course->getCourseID());
+		SchedulePage::$courses[] = $fullCourseContent;
+	}
+	SchedulePage::showCourses();
 }
 
 
