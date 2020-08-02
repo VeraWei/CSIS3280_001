@@ -1,0 +1,8 @@
+[01-Aug-2020 19:58:06 America/Vancouver] SQLSTATE[HY000] [2002] Connection refused
+[01-Aug-2020 19:58:06 America/Vancouver] SQLSTATE[HY000] [2002] Connection refused
+[01-Aug-2020 19:58:06 America/Vancouver] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /Users/vera/projects/courses/3280/CSIS3280_001/inc/utility/PDOAgent.class.php:44
+Stack trace:
+#0 /Users/vera/projects/courses/3280/CSIS3280_001/inc/utility/UserDAO.class.php(17): PDOAgent->query('SELECT * FROM S...')
+#1 /Users/vera/projects/courses/3280/CSIS3280_001/controller/schedule.php(28): UserDAO::getUser(300000000)
+#2 {main}
+  thrown in /Users/vera/projects/courses/3280/CSIS3280_001/inc/utility/PDOAgent.class.php on line 44
