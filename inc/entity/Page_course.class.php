@@ -139,9 +139,14 @@ class CoursePage
                                 } ?>
                                 <tr>
                                     <td>
-                                        <button class="btn btn-primary" type="submit" name="courseSubmit">
-                                            Submit
-                                        </button>
+                                        <?php
+                                        if (empty($courses)) {
+                                            echo "<button disabled class='btn btn-primary' type='submit' name='courseSubmit'> Submit</button>";
+                                        } else {
+                                            echo "<button class='btn btn-primary' type='submit' name='courseSubmit'> Submit</button>";
+                                        }
+                                        ?>
+                                        
                                     </td>
                                 </tr>
                             </tbody>
@@ -163,6 +168,14 @@ class CoursePage
             </div>
             <?php
         }
+        
+        static function showError() {?>
+            <div class="alert alert-danger" role="alert">
+                Please make sure you have selected the major and the term!
+            </div>
+        
+        <?php }
+        
     }
 
 ?>

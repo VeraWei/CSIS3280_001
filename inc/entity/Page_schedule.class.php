@@ -26,7 +26,11 @@ class SchedulePage
 
         <body>
             <div class="container">
-                <h1><?php echo self::$title; ?></h1>
+                <h1>
+                    <?php echo self::$title; ?>
+                    <a class="btn btn-link" href="courseDetail.php">&lt;&lt;&lt; Back to course adding page.</a>
+                </h1>
+                
                 <section>
 
 
@@ -104,7 +108,7 @@ class SchedulePage
 
     static function showPlaceholder() {
         ?>
-            <a href="courseDetail.php"> Go to Add Courses!</a>
+            <a class="btn btn-primary" href="courseDetail.php">No Record, back to Add Courses!</a>
         <?php
     }
 }
