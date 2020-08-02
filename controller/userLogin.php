@@ -42,7 +42,7 @@ if (LoginManager::verifyLogin())    {
     
     header("Location: courseDetail.php");
     exit;
-}`
+}
 else
     Page::showLogin();
 
