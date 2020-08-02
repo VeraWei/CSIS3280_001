@@ -215,11 +215,11 @@ body {
 }
 /* CoursesAdding */
 .searchForm {
-  width: 30%;
-  margin-left: 50px;
+  width: 39.5%;
   display: inline-block;
   vertical-align: top;
   padding: 20px;
+  padding-left: 0;
 }
 #resultShow {
   width: 60%;
@@ -237,4 +237,7 @@ body {
   display: inline-block;
   vertical-align: top;
   padding-left: 12px;
+}
+#userInfo {
+  margin-top: 50px;
 }

@@ -50,29 +50,16 @@ class CoursePage
 
     static function userInfo(User $u) {
     ?>
-        <div class="searchForm">
-            User Info
-            <div class="form-group row">
-                <div class="col-md-6">
-                    studentId: <?php echo $u->getStudentId(); ?>
-                </div>
-                <div class="col-md-6">
-                    Full Name: <?php echo $u->getFullName(); ?>
-                </div>
-                <div class="col-md-6">
-                    Email: <?php echo $u->getEmail(); ?>
-                </div>
-                <div class="col-md-6">
-                    Major: <?php echo $u->getMajor(); ?>
-                </div>
-            </div>        
-
-            <div class="form-group row">
-                <div class="col-md-6">
-                <a class="btn btn-primary" href="userLogout.php" role="button">Logout</a>
-                </div>
-            </div>
-
+        <div class="card" id="userInfo">
+            <h5 class="card-header">Student Current Status</h5>
+            <div class="card-body">
+                <p class="card-text">
+                    <b>StudentID:</b> <?php echo $u->getStudentId(); ?> 
+                    <b>Student Name:</b> <?php echo $u->getFullName(); ?>
+                    <b>Email:</b> <?php echo $u->getEmail(); ?>
+                    <b>Major:</b> <?php echo $u->getMajor(); ?>
+                    <a href="userLogout.php" class="btn btn-primary" style="margin-left:15px">Logout</a>
+                </p>
             </div>
         </div>
     <?php
@@ -83,7 +70,7 @@ class CoursePage
 
         <div class="searchForm">
             <form class="form-signin" action="" method="POST" style="max-width: 330px;">
-                <h4 class="form-signin-heading">Search Courses by ID</h4>
+                <h5 class="form-signin-heading">Search Courses by ID</h5>
                 <div class="form-group">
                     <input type="number" id="inputCourse" class="form-control" placeholder="Enter Courses Section ID" name="inputCourse" />
                 </div>
@@ -93,7 +80,7 @@ class CoursePage
                     </button>
                 </div>
                 <div style="margin-top: 40px;">
-                    <h4 class="form-signin-heading">Search Courses by Filter</h4>
+                    <h5 class="form-signin-heading">Search Courses by Filter</h5>
                     <div class="form-group">
                         <select name="major" class="form-control">
                             <option value="" disabled selected>Choose Your Major</option>
