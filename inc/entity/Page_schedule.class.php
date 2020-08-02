@@ -82,9 +82,15 @@ class SchedulePage
         <div>
             <?php
                 echo "<h5 class='card-title'>Course Title : " . "  " . $course->getCourseID() . " " .  $course->getSubjects() . " " . $course->getWeekDate() . "</h5>";
-                echo "<td><a href='delete-registration?crn=" . $course->getCourseID() ."'>delete course</a>";
+                echo "<td><a href='?crn=" . $course->getCourseID() ."'>delete course</a>";
             ?>
         </div>
+        <?php
+    }
+
+    static function showPlaceholder() {
+        ?>
+            <a href="courseDetail.php"> Go to Add Courses!</a>
         <?php
     }
 }

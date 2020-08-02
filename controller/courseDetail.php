@@ -63,14 +63,15 @@ if(isset($_POST['courseSubmit'])) {
                 // $course = CoursesDAO::getSingleCourse($courseID);
                 // CoursePage::showCourses($course);
 
-                header("Location: schedule.php");
-                exit;
             }
             catch(Exception $e){
                 throw "Failed to add course. Please check if it's already added";
             }
            
         }
+
+        header("Location: schedule.php");
+        exit;
         
     }
 }

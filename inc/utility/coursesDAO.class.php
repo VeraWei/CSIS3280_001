@@ -49,6 +49,23 @@ class CoursesDAO {
         self::$db->execute();
         return self::$db->getResultSet();
     }
+
+    static function deleteSchedule() {
+
+        $studentId = $_SESSION['loggedin'];
+        $deleteQuery = "DELETE FROM Schedule WHERE studentId = :studentId And courseId = :courseId;";
+    
+        self::$db->query($deleteQuery);
+        self::$db->bind(':studentId', $studentId);
+        self::$db->bind(':courseId', $_GET["crn"]);
+
+        self::$db->execute();
+
+        if(self::$db->rowCount() != 1){
+            $errorMsg = "Problem deleting course registration";
+            error_log($errorMsg);
+        }    
+    }
 }
 
 

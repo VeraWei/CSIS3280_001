@@ -29,11 +29,10 @@ $u = UserDAO::getUser($_SESSION['loggedin']);
 
 CoursePage::userInfo($u);
 
-if ($_GET["route"]=="delete-registration"){
-	// CoursesDAO::deleteRegistration();
-	
+if (!empty($_GET['crn'])){
+	CoursesDAO::deleteSchedule($_GET['crn']);
 	// unset($_GET["route"]);
-	// // header('Location: CourseRegistration.php');
+	// header('Location: courseDetail.php');
 	// exit;
 } 
   
@@ -41,6 +40,9 @@ if ($_GET["route"]=="delete-registration"){
 
 $courses = CoursesDAO::getScheduleCourse();
 
+if (empty($courses)) {
+	SchedulePage::showPlaceholder();
+}
 foreach($courses as $course) {
 	$fullCourseContent = CoursesDAO::getSingleCourse($course->getCourseID());
 	SchedulePage::showCourses($fullCourseContent);
