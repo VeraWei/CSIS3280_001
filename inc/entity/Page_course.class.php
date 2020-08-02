@@ -130,11 +130,11 @@ class CoursePage
                                         echo "<input name='courseList[]' type='checkbox' value='" . $course->getCourseID() . "'/>";
                                     }
                                     echo "<div class='course-content'>";
-                                    echo "<h5 class='card-title'>Course Title : " . "  " . $course->getCourseID() . " " .  $course->getSubjects() . " " . $course->getWeekDate() . "</h5>";
+                                    echo "<h5 class='card-title'>" . $course->getMajor() . "  " . $course->getCourseID() . " " .  $course->getSubjects() .  "</h5>";
                                     echo "<p class='card-text'>Instructor:" . "  " . $course->getInstructor() . "</p>";
-                                    echo "<p class='card-text'>Schedule:" . "  " . $course->getCourseStart() . " - " . $course->getCourseEnd() . "</p>";
+                                    echo "<p class='card-text'>Schedule:" . "  " . $course->getCourseStart() . " - " . $course->getCourseEnd() . " " . $course->getWeekDate() ."</p>";
                                     echo "<p class='card-text'>Classroom:" . "  " . $course->getPlace() . "</p>";
-                                    echo "<p class='card-text'>Classroom:" . "  " . $course->getNotes() . "</p>";
+                                    echo "<p class='card-text'>Class Notes" . "  " . $course->getNotes() . "</p>";
                                     echo "</div></div></td></tr>";
                                 } ?>
                                 <tr>
