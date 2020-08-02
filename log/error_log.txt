@@ -30,3 +30,11 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 26
+[02-Aug-2020 04:27:13 UTC] PHP Notice:  Undefined index: term in C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php on line 49
+[02-Aug-2020 04:27:13 UTC] PHP Stack trace:
+[02-Aug-2020 04:27:13 UTC] PHP   1. {main}() C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php:0
+[02-Aug-2020 04:27:13 UTC] PHP Fatal error:  Uncaught TypeError: Argument 2 passed to CoursesDAO::getSelectedCourses() must be of the type string, null given, called in C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php on line 49 and defined in C:\wamp64\www\courses\CSIS3280_001\inc\utility\coursesDAO.class.php:18
+Stack trace:
+#0 C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php(49): CoursesDAO::getSelectedCourses('ACCT', NULL)
+#1 {main}
+  thrown in C:\wamp64\www\courses\CSIS3280_001\inc\utility\coursesDAO.class.php on line 18

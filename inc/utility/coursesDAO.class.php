@@ -25,7 +25,7 @@ class CoursesDAO {
     }
 
     static function getCourses() {
-        $sqlAll = "SELECT * FROM courses";
+        $sqlAll = "SELECT * FROM Courses";
         self::$db->query($sqlAll);
         self::$db->execute();
         return self::$db->getResultSet();
