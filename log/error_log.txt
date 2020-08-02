@@ -6,3 +6,27 @@ Stack trace:
 #1 /Users/vera/projects/courses/3280/CSIS3280_001/controller/schedule.php(28): UserDAO::getUser(300000000)
 #2 {main}
   thrown in /Users/vera/projects/courses/3280/CSIS3280_001/inc/utility/PDOAgent.class.php on line 44
+[02-Aug-2020 03:35:49 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Page::showError(), 0 passed in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 35 and exactly 1 expected in C:\wamp64\www\courses\CSIS3280_001\inc\entity\Page.class.php:86
+Stack trace:
+#0 C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php(35): Page::showError()
+#1 {main}
+  thrown in C:\wamp64\www\courses\CSIS3280_001\inc\entity\Page.class.php on line 86
+[02-Aug-2020 03:37:30 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to UserDAO::getUser() must be of the type int, string given, called in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 23 and defined in C:\wamp64\www\courses\CSIS3280_001\inc\utility\UserDAO.class.php:12
+Stack trace:
+#0 C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php(23): UserDAO::getUser('Yanali0104@gmai...')
+#1 {main}
+  thrown in C:\wamp64\www\courses\CSIS3280_001\inc\utility\UserDAO.class.php on line 12
+[02-Aug-2020 03:37:43 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to UserDAO::getUser() must be of the type int, string given, called in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 23 and defined in C:\wamp64\www\courses\CSIS3280_001\inc\utility\UserDAO.class.php:12
+Stack trace:
+#0 C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php(23): UserDAO::getUser('Yanali0104@gmai...')
+#1 {main}
+  thrown in C:\wamp64\www\courses\CSIS3280_001\inc\utility\UserDAO.class.php on line 12
+[02-Aug-2020 03:38:22 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to UserDAO::getUser() must be of the type int, string given, called in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 23 and defined in C:\wamp64\www\courses\CSIS3280_001\inc\utility\UserDAO.class.php:12
+Stack trace:
+#0 C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php(23): UserDAO::getUser('Yanali0104@gmai...')
+#1 {main}
+  thrown in C:\wamp64\www\courses\CSIS3280_001\inc\utility\UserDAO.class.php on line 12
+[02-Aug-2020 03:38:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function verifyPassword() on bool in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php:26
+Stack trace:
+#0 {main}
+  thrown in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 26

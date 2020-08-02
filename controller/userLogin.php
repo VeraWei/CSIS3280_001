@@ -23,7 +23,7 @@ if (!empty($_POST['studentId']))   {
     $authUser = UserDAO::getUser($_POST['studentId']);
 
         //Check the password
-        if ($authUser->verifyPassword($_POST['password']))  {
+        if ($authUser && $authUser->verifyPassword($_POST['password']))  {
 
             //Start the session
             session_start();
@@ -31,6 +31,8 @@ if (!empty($_POST['studentId']))   {
             //Set the user to logged in
             $_SESSION['loggedin'] = $authUser->getStudentId();
             
+        } else {
+            Page::showError();
         }
 }
 
@@ -40,7 +42,7 @@ if (LoginManager::verifyLogin())    {
     
     header("Location: courseDetail.php");
     exit;
-}
+}`
 else
     Page::showLogin();
 

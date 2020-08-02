@@ -67,7 +67,7 @@ class Page  {
         <h3 class="form-signin-heading">Please sign in</h3>
         <div class="form-group">
             <label for="inputstudentId" class="sr-only">studentId</label>
-            <input type="text" id="inputstudentId" class="form-control" placeholder="User Name" required autofocus name="studentId">
+            <input type="number" id="inputstudentId" class="form-control" placeholder="StudentID" required autofocus name="studentId">
         </div>
 
         <div class="form-group">
@@ -81,6 +81,13 @@ class Page  {
       </form>
     
 
+    <?php }
+
+    static function showError() {?>
+    <div class="alert alert-danger" role="alert">
+    StudentID or Password is wrong, please try angin.
+    </div>
+    
     <?php }
     
 
