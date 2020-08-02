@@ -2,7 +2,7 @@
 
 class Page  {
 
-    public static $title = "Week 13 Demo";
+    public static $title = "Students Courses Management System";
 
     static function header() { ?>
 
@@ -15,7 +15,7 @@ class Page  {
 
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+            <link rel="stylesheet" href="../css/stylesheet.css">
             <title><?php echo self::$title; ?></title>
             <!-- <meta http-equiv="refresh" content="3"> -->
 
@@ -63,8 +63,8 @@ class Page  {
 
     static function showLogin() { ?>
     
-    <form class="form-signin" ACTION="" METHOD="POST" style="max-width: 330px">
-        <h2 class="form-signin-heading">Please sign in</h2>
+    <form class="form-signin signIn" ACTION="" METHOD="POST" style="max-width: 330px">
+        <h3 class="form-signin-heading">Please sign in</h3>
         <div class="form-group">
             <label for="inputstudentId" class="sr-only">studentId</label>
             <input type="text" id="inputstudentId" class="form-control" placeholder="User Name" required autofocus name="studentId">

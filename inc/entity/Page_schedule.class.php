@@ -2,7 +2,7 @@
 
 class SchedulePage
 {
-    public static $title = "Goup 7 Project Work - Students Courses Management System";
+    public static $title = "Students Courses Management System";
     public static $courses = [];
 
     static function header()

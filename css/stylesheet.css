@@ -5,7 +5,8 @@ body {
 }
 
 body {
-  background: #f5f7fa;
+  background: #48D1CC;
+  background-image: url(backgroundImg.png);
   padding: 40px 0;
   box-sizing: border-box;
   font-family: Montserrat, "sans-serif";
@@ -240,4 +241,19 @@ body {
 }
 .userInfo {
   margin-top: 50px;
+  margin-bottom: 30px;
+}
+.signIn {
+  margin-top: 100px;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  
+}
+
+.btn-primary:hover {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
 }
