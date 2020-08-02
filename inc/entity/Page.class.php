@@ -84,9 +84,9 @@ class Page  {
     <?php }
 
     static function showError() {?>
-    <div class="alert alert-danger" role="alert">
-    StudentID or Password is wrong, please try angin.
-    </div>
+        <div class="alert alert-danger" role="alert">
+        StudentID or Password is wrong, please try angin.
+        </div>
     
     <?php }
     

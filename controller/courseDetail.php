@@ -48,6 +48,8 @@ if (!empty($_POST)) {
         if(!empty($_POST['major']) && !empty($_POST['major'])) {
             $courses = CoursesDAO::getSelectedCourses($_POST['major'], $_POST['term']);
             CoursePage::showResult($courses);
+        } else {
+            CoursePage::showError();
         }
     }
 } else {
@@ -68,11 +70,9 @@ if(isset($_POST['courseSubmit'])) {
             }
            
         }
-
-        header("Location: schedule.php");
-        exit;
-        
     }
+    header("Location: schedule.php");
+    exit;
 }
 
 CoursePage::footer();

@@ -30,6 +30,7 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\wamp64\www\courses\CSIS3280_001\controller\userLogin.php on line 26
+<<<<<<< HEAD
 [02-Aug-2020 04:27:13 UTC] PHP Notice:  Undefined index: term in C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php on line 49
 [02-Aug-2020 04:27:13 UTC] PHP Stack trace:
 [02-Aug-2020 04:27:13 UTC] PHP   1. {main}() C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php:0
@@ -38,3 +39,18 @@ Stack trace:
 #0 C:\wamp64\www\courses\CSIS3280_001\controller\courseDetail.php(49): CoursesDAO::getSelectedCourses('ACCT', NULL)
 #1 {main}
   thrown in C:\wamp64\www\courses\CSIS3280_001\inc\utility\coursesDAO.class.php on line 18
+=======
+[01-Aug-2020 21:00:33 America/Vancouver] Problem deleting course registration
+[01-Aug-2020 21:01:24 America/Vancouver] Problem deleting course registration
+[01-Aug-2020 21:24:47 America/Vancouver] PHP Notice:  Undefined index: term in /Users/vera/projects/courses/3280/CSIS3280_001/controller/courseDetail.php on line 49
+[01-Aug-2020 21:24:47 America/Vancouver] PHP Stack trace:
+[01-Aug-2020 21:24:47 America/Vancouver] PHP   1. {main}() /Users/vera/projects/courses/3280/CSIS3280_001/controller/courseDetail.php:0
+[01-Aug-2020 21:25:42 America/Vancouver] PHP Fatal error:  Uncaught TypeError: Argument 2 passed to CoursesDAO::getSelectedCourses() must be of the type string, null given, called in /Users/vera/projects/courses/3280/CSIS3280_001/controller/courseDetail.php on line 49 and defined in /Users/vera/projects/courses/3280/CSIS3280_001/inc/utility/CoursesDAO.class.php:18
+Stack trace:
+#0 /Users/vera/projects/courses/3280/CSIS3280_001/controller/courseDetail.php(49): CoursesDAO::getSelectedCourses('BUSN', NULL)
+#1 {main}
+  thrown in /Users/vera/projects/courses/3280/CSIS3280_001/inc/utility/CoursesDAO.class.php on line 18
+[01-Aug-2020 21:25:42 America/Vancouver] PHP Stack trace:
+[01-Aug-2020 21:25:42 America/Vancouver] PHP   1. {main}() /Users/vera/projects/courses/3280/CSIS3280_001/controller/courseDetail.php:0
+[01-Aug-2020 21:25:42 America/Vancouver] PHP   2. CoursesDAO::getSelectedCourses($major = *uninitialized*, $term = *uninitialized*) /Users/vera/projects/courses/3280/CSIS3280_001/controller/courseDetail.php:49
+>>>>>>> cb4c93e966b9ad671f2f8dcefba6c0a23b655909
