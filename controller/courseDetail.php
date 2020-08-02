@@ -34,16 +34,13 @@ foreach(CoursesDAO::getScheduleCourse() as $scheduleCourse) {
 }
 
 if (!empty($_POST)) {
-    $courseId = (int)$_POST['inputCourse'];
-    if (!empty($courseId)) {
-        $courses = CoursesDAO::getSingleCourse($courseId);
+    if (!empty($_POST['inputCourse'])) {
+        $courses = CoursesDAO::getSingleCourse((int)$_POST['inputCourse']);
         CoursePage::showResult([$courses]);
     } else {
-        $major = $_POST['major'];
-        $term = $_POST['term'];
 
-        if(!empty($major) && !empty($term)) {
-            $courses = CoursesDAO::getSelectedCourses($major, $term);
+        if(!empty($_POST['major']) && !empty($_POST['major'])) {
+            $courses = CoursesDAO::getSelectedCourses($_POST['major'], $_POST['term']);
             CoursePage::showResult($courses);
         }
     }
@@ -55,9 +52,8 @@ if (!empty($_POST)) {
 // course submit
 
 if(isset($_POST['courseSubmit'])) {
-    $courseList = $_POST['courseList'];
-    if(!empty($courseList)) {
-        foreach ($courseList as $courseId) {
+    if(!empty($_POST['courseList'])) {
+        foreach ($_POST['courseList'] as $courseId) {
             try {
                 CoursesDAO::addCourses($courseId);
                 // $course = CoursesDAO::getSingleCourse($courseID);
