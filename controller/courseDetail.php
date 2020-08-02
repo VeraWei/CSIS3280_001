@@ -6,10 +6,10 @@ include_once("../inc/entity/Page_course.class.php");
 
 include_once("../inc/utility/PDOAgent.class.php");
 require_once("../inc/utility/LoginManager.class.php");
-include_once("../inc/utility/coursesDAO.class.php");
+include_once("../inc/utility/CoursesDAO.class.php");
 require_once("../inc/utility/UserDAO.class.php");
 
-coursesDAO::init("Courses");
+CoursesDAO::init();
 UserDAO::init();
 
 CoursePage::header();
@@ -23,32 +23,32 @@ if(!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-coursesDAO::$studentId = $_SESSION['loggedin'];
+CoursesDAO::$studentId = $_SESSION['loggedin'];
 $u = UserDAO::getUser($_SESSION['loggedin']);
 
 CoursePage::userInfo($u);
 CoursePage::showSearchBar();
 
-foreach(coursesDAO::getScheduleCourse() as $scheduleCourse) {
+foreach(CoursesDAO::getScheduleCourse() as $scheduleCourse) {
     CoursePage::$scheduleCourses[] = $scheduleCourse->getCourseID();
 }
 
 if (!empty($_POST)) {
     $courseId = (int)$_POST['inputCourse'];
     if (!empty($courseId)) {
-        $courses = coursesDAO::getSingleCourse($courseId);
+        $courses = CoursesDAO::getSingleCourse($courseId);
         CoursePage::showResult([$courses]);
     } else {
         $major = $_POST['major'];
         $term = $_POST['term'];
 
         if(!empty($major) && !empty($term)) {
-            $courses = coursesDAO::getSelectedCourses($major, $term);
+            $courses = CoursesDAO::getSelectedCourses($major, $term);
             CoursePage::showResult($courses);
         }
     }
 } else {
-    $courses = coursesDAO::getCourses();
+    $courses = CoursesDAO::getCourses();
     CoursePage::showResult($courses);
 }
 
@@ -59,9 +59,12 @@ if(isset($_POST['courseSubmit'])) {
     if(!empty($courseList)) {
         foreach ($courseList as $courseId) {
             try {
-                coursesDAO::addCourses($courseId);
-                $course = coursesDAO::getSingleCourse($courseID);
-                CoursePage::showCourses($course);
+                CoursesDAO::addCourses($courseId);
+                // $course = CoursesDAO::getSingleCourse($courseID);
+                // CoursePage::showCourses($course);
+
+                header("Location: schedule.php");
+                exit;
             }
             catch(Exception $e){
                 throw "Failed to add course. Please check if it's already added";

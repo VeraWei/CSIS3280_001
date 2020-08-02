@@ -1,10 +1,10 @@
 <?php
-class coursesDAO {
+class CoursesDAO {
     private static $db;
     public static $studentId;
     
     static function init() {
-        self::$db = new PDOAgent("courses");
+        self::$db = new PDOAgent("Courses");
     }
 
     static function getSingleCourse(int $courseId) {
